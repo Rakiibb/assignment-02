@@ -1,7 +1,7 @@
-export const DetailModal = ({setClick, selectedMovieData}) => {
+export const DetailModal = ({ setClick, selectedMovieData }) => {
 
     console.log(selectedMovieData)
-    return(
+    return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
 
             {/* Modal Card */}
@@ -21,8 +21,8 @@ export const DetailModal = ({setClick, selectedMovieData}) => {
                     {/* Movie Poster */}
                     <div className="h-80 md:h-[500px]">
                         <img
-                            src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"
-                            alt="Movie Poster"
+                            src={selectedMovieData.image.medium}
+                                alt={selectedMovieData.title}
                             className="h-full w-full object-cover"
                         />
                     </div>
@@ -35,7 +35,7 @@ export const DetailModal = ({setClick, selectedMovieData}) => {
                         </h2>
 
                         <p className="mt-2 text-slate-400">
-                             • {selectedMovieData.runtime} Minute
+                            • {selectedMovieData.runtime} Minute
                         </p>
 
                         {/* Rating */}
@@ -48,16 +48,16 @@ export const DetailModal = ({setClick, selectedMovieData}) => {
 
                         {/* Genres */}
                         <div className="mt-5 flex flex-wrap gap-2">
-                            
 
-                           {selectedMovieData.genres.map((genre, index) => (
-    <span
-        key={index}
-        className="rounded-full bg-red-600/20 px-3 py-1 text-sm text-red-400"
-    >
-        {genre}
-    </span>
-))}
+
+                            {selectedMovieData.genres.map((genre, index) => (
+                                <span
+                                    key={index}
+                                    className="rounded-full bg-red-600/20 px-3 py-1 text-sm text-red-400"
+                                >
+                                    {genre}
+                                </span>
+                            ))}
 
                         </div>
 
@@ -68,7 +68,10 @@ export const DetailModal = ({setClick, selectedMovieData}) => {
                             </h3>
 
                             <p className="mt-2 leading-6 text-slate-400">
-                                {selectedMovieData.summary}
+                                {selectedMovieData.summary
+                                    ?.replace(/<[^>]*>/g, "").split(" ")
+                                    .slice(0, 40)
+                                    .join(" ")}
                             </p>
                         </div>
 
@@ -81,7 +84,7 @@ export const DetailModal = ({setClick, selectedMovieData}) => {
 
                             <p>
                                 📺 <span className="font-semibold">Type:</span>{" "}
-                                 {selectedMovieData.type}
+                                {selectedMovieData.type}
                             </p>
 
                             <p>
