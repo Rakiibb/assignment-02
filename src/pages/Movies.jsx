@@ -10,7 +10,7 @@ export const Movies =  () => {
     const [click, setClick] = useState(false)
     const [selectedMovieData, setSelectedMovieData] =useState(null)
 
-    console.log(click);
+    // console.log(click);
 
     const nevigate = useNavigate()
 
@@ -28,7 +28,7 @@ export const Movies =  () => {
 
         const value = searchMovie.trim();
         setValue(value);
-        console.log(value);
+        // console.log(value);
 
         
     };

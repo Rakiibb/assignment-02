@@ -15,7 +15,7 @@ export const AfterSearch = ({value, setClick, setSelectedMovieData}) => {
         const fetchMovies = async () => {
             const data = await GetSearchMovies(value);
 
-            console.log(data);
+            // console.log(data);
             setMovies(data);
             
            

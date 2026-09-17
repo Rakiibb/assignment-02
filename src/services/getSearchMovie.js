@@ -4,7 +4,7 @@ export const GetSearchMovies = async (searchValue) => {
     const data = await fetch(url);
     const json = await data.json()
 
-    console.log(json)
+    // console.log(json)
 
     return (json)
 }
